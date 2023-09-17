@@ -1,6 +1,8 @@
 import { View, Text, Image } from "react-native";
 import React, { useState } from "react";
-import StarRating from "react-native-star-rating-widget";
+// import StarRating from "react-native-star-rating-widget";
+import Stars from "react-native-stars";
+import { FontAwesome } from "@expo/vector-icons";
 const clinicbag = require("../assets/images/doctorBag.png");
 const location = require("../assets/images/location.png");
 const CardsingleDoctor = ({
@@ -66,6 +68,7 @@ const CardsingleDoctor = ({
           style={{
             flexDirection: "row",
             marginTop: 10,
+            marginLeft: 4,
           }}
         >
           <Image source={clinicbag} style={{}} />
@@ -73,16 +76,32 @@ const CardsingleDoctor = ({
           <Image style={{ marginLeft: 14 }} source={location} />
           <Text style={{ marginLeft: 8 }}>{distance}</Text>
         </View>
-        <StarRating
-          starSize={15}
-          color="#F6A623"
-          rating={rating}
-          onChange={setRating}
+
+        <View
           style={{
-            marginLeft: -8,
-            marginTop: 5,
+            alignItems: "flex-start",
+            marginTop: 1,
           }}
-        />
+        >
+          <Stars
+            default={2.5}
+            count={5}
+            half={true}
+            spacing={5}
+            starSize={15}
+            fullStar={<FontAwesome name={"star"} size={15} color={"#F6A623"} />}
+            emptyStar={
+              <FontAwesome name={"star-o"} size={15} color={"#F6A623"} />
+            }
+            halfStar={
+              <FontAwesome
+                name={"star-half-full"}
+                size={15}
+                color={"#F6A623"}
+              />
+            }
+          />
+        </View>
       </View>
     </View>
   );

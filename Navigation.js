@@ -6,10 +6,13 @@ import Doctordetail from "./screens/Doctordetail";
 import Patientdetail from "./screens/Patientdetail";
 import Payment from "./screens/Payment";
 import Home from "./screens/Home";
-import { Entypo, Ionicons } from "@expo/vector-icons";
+import { Entypo, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import Login from "./screens/Login";
 import Register from "./screens/Register";
+import { Feather } from "@expo/vector-icons";
 import Finddoctor from "./screens/Finddoctor";
+import { FontAwesome } from "@expo/vector-icons";
+import { Octicons } from "@expo/vector-icons";
 
 //Stack
 const HomeStack = createNativeStackNavigator();
@@ -40,8 +43,18 @@ function HomeStackGroup() {
 function NestedStack() {
   return (
     <HomeStack.Navigator>
-      <HomeStack.Screen name="Home" component={Home} />
-      <HomeStack.Screen name="Finddoctor" component={Finddoctor} />
+      <HomeStack.Screen
+        name="Home"
+        component={Home}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <HomeStack.Screen name="Finddoctor" component={Finddoctor} options={{
+        title:"Find Doctor",
+        headerTitleAlign:'center'
+        
+      }} />
     </HomeStack.Navigator>
   );
 }
@@ -52,7 +65,7 @@ function TabGroup() {
   return (
     <Tab.Navigator
       screenOptions={({ route, navigation }) => ({
-        tabBarActiveTintColor: "#21a6ad",
+        headerShown: false,
       })}
     >
       <Tab.Screen
@@ -60,13 +73,54 @@ function TabGroup() {
         component={NestedStack}
         options={{
           title: "Home",
-          tabBarIcon: () => <Entypo name="home" size={24} />,
-          headerShown: false,
+          tabBarIcon: ({ focused, color }) => (
+            <Ionicons
+              name={focused ? "home" : "home-outline"}
+              size={24}
+              color={focused ? "#21A6AD" : "#BCC3C4"}
+            />
+          ),
         }}
       />
-      <Tab.Screen name="Doctordetail" component={Doctordetail} />
-      <Tab.Screen name="Patientdetail" component={Patientdetail} />
-      <Tab.Screen name="Payment" component={Payment} />
+      <Tab.Screen
+        name="Doctordetail"
+        component={Doctordetail}
+        options={{
+          tabBarIcon: ({ focused, color }) => (
+            <FontAwesome
+              name="stethoscope"
+              size={24}
+              color={focused ? "#21A6AD" : "#BCC3C4"}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Patientdetail"
+        component={Patientdetail}
+        options={{
+          tabBarIcon: ({ focused, color }) => (
+            <Ionicons
+              name={focused ? "person" : "person-outline"}
+              size={24}
+              color={focused ? "#21A6AD" : "#BCC3C4"}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Payment"
+        component={Payment}
+        options={{
+          tabBarIcon: ({ focused, color }) => (
+            <MaterialCommunityIcons
+              name={focused ? "credit-card" : "credit-card-outline"}
+              size={24}
+              color={focused ? "#21A6AD" : "#BCC3C4"}
+            />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 }

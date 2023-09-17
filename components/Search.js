@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Image, SafeAreaView, StyleSheet, TextInput, View } from "react-native";
 const searchIcon = require("../assets/images/search.png");

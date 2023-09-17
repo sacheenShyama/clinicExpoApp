@@ -1,5 +1,5 @@
-import {View, Text, Image} from 'react-native';
-import React from 'react';
+import { View, Text, Image } from "react-native";
+import React from "react";
 
 const CardHealthArticle = ({
   width,
@@ -22,46 +22,53 @@ const CardHealthArticle = ({
         paddingTop: paddingTop ? paddingTop : 15,
         paddingLeft: 13,
         paddingRight: 15,
-        backgroundColor: backgroundColor ? backgroundColor : 'white',
+        backgroundColor: backgroundColor ? backgroundColor : "white",
         borderRadius: borderRadius ? borderRadius : 15,
-        width: width ? width : 'auto',
-        height: height ? height : 'auto',
-      }}>
+        width: width ? width : "auto",
+        height: height ? height : "auto",
+      }}
+    >
       <View
         style={{
-          width: '90%',
+          width: "100%",
           height: 185,
-        }}>
-        <Image
+          backgroundColor: "#D0E5E6",
+          borderRadius: 15,
+        }}
+      >
+        {/* <Image
           source={image}
           width={imageWidth ? imageWidth : 300}
           height={imageHeight ? imageHeight : 184}
           style={{
-            resizeMode: 'contain',
+            resizeMode: "contain",
           }}
-        />
+        /> */}
       </View>
       <View
         style={{
           height: 36,
           marginRight: 15,
           marginTop: 20,
-        }}>
+        }}
+      >
         <Text
           style={{
             fontSize: 14,
             fontWeight: 500,
-            color: '#3B3F3F',
-          }}>
+            color: "#3B3F3F",
+          }}
+        >
           Secrets of Healthy Life
         </Text>
         <Text
           style={{
             fontSize: 12,
             fontWeight: 500,
-            color: '#7C8485',
+            color: "#7C8485",
             marginTop: 7,
-          }}>
+          }}
+        >
           Pellentesque arcu arcu, volutpat nec magna ut, ultricies mattis nisl.
           Sed varius sem sem, vel lacinia ante interdum at.
         </Text>

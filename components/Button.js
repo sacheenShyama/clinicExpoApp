@@ -28,8 +28,7 @@ const Button = ({
 }) => {
   const [isClicked, setIsClicked] = React.useState(false);
 
-  const handlePress = (event) => {
-    event && event.preventDefault && event.preventDefault();
+  const handlePress = () => {
     setIsClicked(!isClicked);
     if (onPress) {
       onPress();
@@ -49,7 +48,7 @@ const Button = ({
           marginBottom: marginBottom === undefined ? 0 : marginBottom,
         },
       ]}
-      onPress={(e) => handlePress(e)}
+      onPress={handlePress}
     >
       <View
         style={{
